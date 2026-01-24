@@ -1,0 +1,8 @@
+id = "snippet.zed.iWonder"
+name = "Code Snippets iWonder"
+version = "0.0.1"
+schema_version = 1
+authors = ["ityme"]
+description = "Code snippets for Zed. Currently supports [ python, ... ]"
+repository = "https://github.com/ityme/snippet.zed.iWonder"
+snippets = "./snippets/python.json"
