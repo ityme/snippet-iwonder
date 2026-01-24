@@ -1,2 +1,2 @@
 # snippet.zed.iWonder
-Code snippets for Zed. Currently supports [ Python,  ... ]
+Code snippets for Zed. Currently supports [ python,  ... ]
