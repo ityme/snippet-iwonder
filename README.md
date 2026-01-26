@@ -33,12 +33,12 @@ If you want to modify the snippets or contribute to the project:
 
 1.  Clone this repository to a local directory:
     ```bash
-    git clone https://github.com/ityme/snippet.zed.iWonder.git
+    git clone https://github.com/ityme/snippet-zed-iWonder.git
     ```
 2.  Open Zed.
 3.  Go to **Extensions** view.
 4.  Click the **Install Dev Extension** button (or "Load Extension from Folder").
-5.  Select the `snippet.zed.iWonder` folder you just cloned.
+5.  Select the `snippet-zed-iWonder` folder you just cloned.
 
 ## Usage
 
