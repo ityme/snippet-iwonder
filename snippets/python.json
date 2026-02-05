@@ -1,253 +1,284 @@
 {
-  "import(module)  snippet.iWonder": {
-    "prefix": "import",
-    "body": "import ${1:module}\n\n\n$0",
-    "description": "Import a module."
-  },
-  "import(from module)  snippet.iWonder": {
-    "prefix": "from",
-    "body": "from ${1:module} import ${2:item}\n\n\n$0",
-    "description": "Import a specific item from a module."
-  },
-  "main(entry point)  snippet.iWonder": {
-    "prefix": "main",
-    "body": "def main():\n    ${999:...}\n\n\nif __name__ == \"__main__\":\n    main()\n",
-    "description": "Standard __main__ entry point boilerplate."
-  },
-  "function(definition)  snippet.iWonder": {
-    "prefix": "def",
-    "body": "def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define a standard function."
-  },
-  "function(definition alias)  snippet.iWonder": {
-    "prefix": "func",
-    "body": "def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define a standard function."
-  },
-  "class(definition)  snippet.iWonder": {
-    "prefix": "class",
-    "body": "class ${1:ClassName}(${2:object}):\n    def __init__(self, ${3:arg}):\n        ${999:...}\n\n    ",
-    "description": "Define a class with an __init__ method."
-  },
-  "property(full)  snippet.iWonder": {
-    "prefix": "property",
-    "body": "    self._${1:data} = None\n\n@property\ndef ${1:data}(self):\n    return self._${1:data}\n\n@${1:data}.setter\ndef ${1:data}(self, value):\n    self._${1:data} = value\n\n@${1:data}.deleter\ndef ${1:data}(self):\n    del self._${1:data}\n\n${999:}",
-    "description": "Define a property with getter, setter, and deleter."
-  },
-  "function(method)  snippet.iWonder": {
-    "prefix": "def-self",
-    "body": "def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an instance method (with self)."
-  },
-  "function(method alias)  snippet.iWonder": {
-    "prefix": "func-self",
-    "body": "def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an instance method (with self)."
-  },
-  "loop(for i in)  snippet.iWonder": {
-    "prefix": "for-i-in",
-    "body": "for ${1:i} in ${2:[]}:\n    ${999:...}\n\n",
-    "description": "Iterate over a sequence."
-  },
-  "loop(while)  snippet.iWonder": {
-    "prefix": "while",
-    "body": "while ${1:True}:\n    ${999:...}\n\n",
-    "description": "Loop while a condition is true."
-  },
-  "condition(if)  snippet.iWonder": {
-    "prefix": "if",
-    "body": "if ${1:True}:\n     ${999:...}\n\n",
-    "description": "Basic if statement."
-  },
-  "condition(if/else)  snippet.iWonder": {
-    "prefix": "ifelse",
-    "body": "if ${1:True}:\n    ${2:...}\nelse:\n    ${999:...}\n\n",
-    "description": "If statement with an else block."
-  },
-  "condition(elif)  snippet.iWonder": {
-    "prefix": "elif",
-    "body": "elif ${1:True}:\n    ${999:...}\n\n",
-    "description": "Elif block for conditional chains."
-  },
-  "condition(else)  snippet.iWonder": {
-    "prefix": "else",
-    "body": "else:\n    ${999:...}\n\n",
-    "description": "Else block."
-  },
-  "exception(try/except)  snippet.iWonder": {
-    "prefix": "try",
-    "body": "try:\n    ${1:...}\nexcept ${2:Exception} as ${3:e}:\n    ${999:...}\n\n",
-    "description": "Handle exceptions with try/except."
-  },
-  "exception(try/except/finally)  snippet.iWonder": {
-    "prefix": "try-finally",
-    "body": "try:\n    ${1:...}\nexcept ${2:Exception} as ${3:e}:\n    ${4:...}\nfinally:\n    ${999:...}\n\n",
-    "description": "Handle exceptions with a finally cleanup block."
-  },
-  "exception(finally)  snippet.iWonder": {
-    "prefix": "finally",
-    "body": "finally:\n    ${999:...}\n\n",
-    "description": "Standalone finally block."
-  },
-  "with(file)  snippet.iWonder": {
-    "prefix": "with",
-    "body": "with open(${1:\"${2:file.txt}\"}) as ${3:f}:\n    t = json.load(${3:f})\n    $999",
-    "description": "Open a file using a context manager."
-  },
-  "context(class template)  snippet.iWonder": {
-    "prefix": "context-manager",
-    "body": "class ${1:ContextManager}(object):\n    def __init__(self, ${2:key}=None):\n        self.${2:key} = ${2:key}\n        self.handle = None\n\n    def __enter__(self):\n        self.handle = ${3:None}\n        return self.handle\n\n    def __exit__(self, exc_type, exc_value, traceback):\n        if self.handle:\n            self.handle.close()\n\n        if exc_type:\n            return False  # False: the exception will be re-raised.\n\n\n",
-    "description": "Create a custom context manager class."
-  },
-  "decorator(standard)  snippet.iWonder": {
-    "prefix": "decorator",
-    "body": "def ${1:decorator}(func):\n    def wrapper(*args, **kwargs):\n        ${2:...}\n        r = func(*args, **kwargs)\n        ${3:...}\n        return r\n\n    return wrapper\n\n$999",
-    "description": "Create a standard function decorator."
-  },
-  "decorator(with arguments)  snippet.iWonder": {
-    "prefix": "decorator-with-arg",
-    "body": "def ${1:decorator_with_arg}(${2:flag}):\n    def decorator(func):\n        def wrapper(*args, **kwargs):\n            if ${2:flag}:\n                ${3:...}\n            r = func(*args, **kwargs)\n            if ${2:flag}:\n                ${4:...}\n            return r\n\n        return wrapper\n\n    return decorator\n\n$999",
-    "description": "Create a decorator that accepts arguments."
-  },
-  "function(lambda)  snippet.iWonder": {
-    "prefix": "lambda",
-    "body": "lambda ${1:x}: ${2:x + 1}",
-    "description": "Inline anonymous lambda function."
-  },
-  "comprehension(list)  snippet.iWonder": {
-    "prefix": "list-comprehension",
-    "body": "[${1:i + 1} for ${2:i} in ${3:range(0, ${4:10})}]",
-    "description": "Create a list using comprehension."
-  },
-  "comprehension(dict)  snippet.iWonder": {
-    "prefix": "dict-comprehension",
-    "body": "{${1:k}:${2:v} for ${1:k}, ${2:v} in ${4:${3:dict()}.items()}}",
-    "description": "Create a dictionary using comprehension."
-  },
-  "print(basic)  snippet.iWonder": {
-    "prefix": "print",
-    "body": "print(${1:None})\n$999",
-    "description": "Standard print statement."
-  },
-  "print(type debug)  snippet.iWonder": {
-    "prefix": "print-with-type",
-    "body": "print(${1:None}, type(${1:None}))\n$999",
-    "description": "Print value and its type."
-  },
-  "f-string(debug)  snippet.iWonder": {
-    "prefix": "f-string",
-    "body": "f\"{${1:None}=}\"$999",
-    "description": "Self-documenting f-string (var=value)."
-  },
-  "log(info)  snippet.iWonder": {
-    "prefix": "log-info",
-    "body": "logging.info(f\"${1:info}\")\n$999",
-    "description": "Log an info message."
-  },
-  "log(debug)  snippet.iWonder": {
-    "prefix": "log-debug",
-    "body": "logging.debug(f\"${1:debug}\")\n$999",
-    "description": "Log a debug message."
-  },
-  "log(warning)  snippet.iWonder": {
-    "prefix": "log-warn",
-    "body": "logging.warn(f\"${1:warn}\")\n$999",
-    "description": "Log a warning message."
-  },
-  "log(error)  snippet.iWonder": {
-    "prefix": "log-error",
-    "body": "logging.error(f\"${1:error}\")\n$999",
-    "description": "Log an error message."
-  },
-  "docstring(google style)  snippet.iWonder": {
-    "prefix": "doc",
-    "body": "\"\"\"\nSummary:\n    ${1:document}\n\nArgs:\n    ${2:arg}\t:\t${3:type}\t:\t${4:description}\n\nReturns:\n    ${5:value}\t:\t${6:type}\t:\t${7:description}\n\nRaises:\n    ${8:Exception}\t:\t${9:description}\n\"\"\"\n\n$999",
-    "description": "Generate a structured function docstring."
-  },
-  "variable(assign)  snippet.iWonder": {
-    "prefix": "var",
-    "body": "${1:arg} = ${2:None}\n$0",
-    "description": "Basic variable assignment."
-  },
-  "list(sort in-place)  snippet.iWonder": {
-    "prefix": "sort-list",
-    "body": "${1:[]}.sort(key=lambda x: ${2:int(x)}${3:, reverse=True})\n$0",
-    "description": "Sort a list in-place using a key."
-  },
-  "list(sorted new)  snippet.iWonder": {
-    "prefix": "sorted-list",
-    "body": "${1:_l} = sorted(${2:[]}, key=lambda x: ${3:int(x)}${4:, reverse=True})\n$0",
-    "description": "Return a new sorted list."
-  },
-  "function(async)  snippet.iWonder": {
-    "prefix": "def-async",
-    "body": "async def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an asynchronous coroutine."
-  },
-  "function(async alias)  snippet.iWonder": {
-    "prefix": "func-async",
-    "body": "async def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an asynchronous coroutine."
-  },
-  "function(method async)  snippet.iWonder": {
-    "prefix": "def-self-async",
-    "body": "async def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an asynchronous instance method."
-  },
-  "function(method async alias)  snippet.iWonder": {
-    "prefix": "func-self-async",
-    "body": "async def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
-    "description": "Define an asynchronous instance method."
-  },
-  "variable(int)  snippet.iWonder": {
-    "prefix": "var-hint-int",
-    "body": "${1:num}: int = ${2:0}\n$999",
-    "description": "Variable with integer type hint."
-  },
-  "variable(string)  snippet.iWonder": {
-    "prefix": "var-hint-str",
-    "body": "${1:s}: str = \"${2:}\"\n$999",
-    "description": "Variable with string type hint."
-  },
-  "variable(list)  snippet.iWonder": {
-    "prefix": "var-hint-list",
-    "body": "${1:_l}: list[${2:None}] = [${3:}]\n$999",
-    "description": "Variable with list type hint."
-  },
-  "variable(tuple)  snippet.iWonder": {
-    "prefix": "var-hint-tuple",
-    "body": "${1:_t}: tuple[${2:None}] = (${3:None},)\n$999",
-    "description": "Variable with tuple type hint."
-  },
-  "variable(dict)  snippet.iWonder": {
-    "prefix": "var-hint-dict",
-    "body": "${1:_d}: dict[${2:str}, ${3:str}] = ${4:{}}\n$999",
-    "description": "Variable with dictionary type hint."
-  },
-  "variable(float)  snippet.iWonder": {
-    "prefix": "var-hint-float",
-    "body": "${1:_f}: float = ${2:0.00}\n$999",
-    "description": "Variable with float type hint."
-  },
-  "function(hint)  snippet.iWonder": {
-    "prefix": "def-hint",
-    "body": "def ${1:func}(${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
-    "description": "Function definition with type annotations."
-  },
-  "function(hint alias)  snippet.iWonder": {
-    "prefix": "func-hint",
-    "body": "def ${1:func}(${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
-    "description": "Function definition with type annotations."
-  },
-  "function(method hint)  snippet.iWonder": {
-    "prefix": "def-self-hint",
-    "body": "def ${1:func}(self, ${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
-    "description": "Method definition with type annotations."
-  },
-  "function(method hint alias)  snippet.iWonder": {
-    "prefix": "func-self-hint",
-    "body": "def ${1:func}(self, ${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
-    "description": "Method definition with type annotations."
-  }
-}
+	"region(folding)  snippet.iWonder": {
+		"prefix": "region",
+		"body": "# region      - module: ${1:name}\n${2:# endregion   - module: ${1:name}}\n$0",
+		"description": "Insert a region for code folding."
+	},
+	"import(module)  snippet.iWonder": {
+		"prefix": "import",
+		"body": "import ${1:module}\n\n\n$0",
+		"description": "Import a module."
+	},
+	"import(from module)  snippet.iWonder": {
+		"prefix": "from",
+		"body": "from ${1:module} import ${2:item}\n\n\n$0",
+		"description": "Import a specific item from a module."
+	},
+	"main(entry point)  snippet.iWonder": {
+		"prefix": "main",
+		"body": "def main():\n    ${999:...}\n\n\nif __name__ == \"__main__\":\n    main()\n",
+		"description": "Standard __main__ entry point boilerplate."
+	},
+	"function(definition)  snippet.iWonder": {
+		"prefix": "def",
+		"body": "def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define a standard function."
+	},
+	"function(definition alias)  snippet.iWonder": {
+		"prefix": "func",
+		"body": "def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define a standard function."
+	},
+	"class(definition)  snippet.iWonder": {
+		"prefix": "class",
+		"body": "class ${1:ClassName}:\n    def __init__(self, ${2:arg}):\n        ${999:...}\n\n    ",
+		"description": "Define a class with an __init__ method."
+	},
+	"property(full)  snippet.iWonder": {
+		"prefix": "property",
+		"body": "    self._${1:data} = None\n\n@property\ndef ${1:data}(self):\n    return self._${1:data}\n\n@${1:data}.setter\ndef ${1:data}(self, value):\n    self._${1:data} = value\n\n@${1:data}.deleter\ndef ${1:data}(self):\n    del self._${1:data}\n\n${999:}",
+		"description": "Define a property with getter, setter, and deleter."
+	},
+	"function(method)  snippet.iWonder": {
+		"prefix": "def-self",
+		"body": "def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an instance method (with self)."
+	},
+	"function(method alias)  snippet.iWonder": {
+		"prefix": "func-self",
+		"body": "def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an instance method (with self)."
+	},
+	"loop(for i in)  snippet.iWonder": {
+		"prefix": "for-i-in",
+		"body": "for ${1:i} in ${2:[]}:\n    ${999:...}\n\n",
+		"description": "Iterate over a sequence."
+	},
+	"loop(while)  snippet.iWonder": {
+		"prefix": "while",
+		"body": "while ${1:True}:\n    ${999:...}\n\n",
+		"description": "Loop while a condition is true."
+	},
+	"condition(if)  snippet.iWonder": {
+		"prefix": "if",
+		"body": "if ${1:True}:\n     ${999:...}\n\n",
+		"description": "Basic if statement."
+	},
+	"condition(if/else)  snippet.iWonder": {
+		"prefix": "ifelse",
+		"body": "if ${1:True}:\n    ${2:...}\nelse:\n    ${999:...}\n\n",
+		"description": "If statement with an else block."
+	},
+	"condition(elif)  snippet.iWonder": {
+		"prefix": "elif",
+		"body": "elif ${1:True}:\n    ${999:...}\n\n",
+		"description": "Elif block for conditional chains."
+	},
+	"condition(else)  snippet.iWonder": {
+		"prefix": "else",
+		"body": "else:\n    ${999:...}\n\n",
+		"description": "Else block."
+	},
+	"exception(try/except)  snippet.iWonder": {
+		"prefix": "try",
+		"body": "try:\n    ${1:...}\nexcept ${2:Exception} as ${3:e}:\n    ${999:...}\n\n",
+		"description": "Handle exceptions with try/except."
+	},
+	"exception(try/except/finally)  snippet.iWonder": {
+		"prefix": "try-finally",
+		"body": "try:\n    ${1:...}\nexcept ${2:Exception} as ${3:e}:\n    ${4:...}\nfinally:\n    ${999:...}\n\n",
+		"description": "Handle exceptions with a finally cleanup block."
+	},
+	"exception(finally)  snippet.iWonder": {
+		"prefix": "finally",
+		"body": "finally:\n    ${999:...}\n\n",
+		"description": "Standalone finally block."
+	},
+	"with(file)  snippet.iWonder": {
+		"prefix": "with",
+		"body": "with open(${1:\"${2:file.txt}\"}) as ${3:f}:\n    t = json.load(${3:f})\n    $999",
+		"description": "Open a file using a context manager."
+	},
+	"context(class template)  snippet.iWonder": {
+		"prefix": "context-manager",
+		"body": "class ${1:ContextManager}:\n    def __init__(self, ${2:key}=None):\n        self.${2:key} = ${2:key}\n        self.handle = None\n\n    def __enter__(self):\n        self.handle = ${3:None}\n        return self.handle\n\n    def __exit__(self, exc_type, exc_value, traceback):\n        if self.handle:\n            self.handle.close()\n\n        if exc_type:\n            return False  # False: the exception will be re-raised.\n\n\n",
+		"description": "Create a custom context manager class."
+	},
+	"decorator(standard)  snippet.iWonder": {
+		"prefix": "decorator",
+		"body": "def ${1:decorator}(func):\n    def wrapper(*args, **kwargs):\n        ${2:...}\n        r = func(*args, **kwargs)\n        ${3:...}\n        return r\n\n    return wrapper\n\n$999",
+		"description": "Create a standard function decorator."
+	},
+	"decorator(with arguments)  snippet.iWonder": {
+		"prefix": "decorator-with-arg",
+		"body": "def ${1:decorator_with_arg}(${2:flag}):\n    def decorator(func):\n        def wrapper(*args, **kwargs):\n            if ${2:flag}:\n                ${3:...}\n            r = func(*args, **kwargs)\n            if ${2:flag}:\n                ${4:...}\n            return r\n\n        return wrapper\n\n    return decorator\n\n$999",
+		"description": "Create a decorator that accepts arguments."
+	},
+	"function(lambda)  snippet.iWonder": {
+		"prefix": "lambda",
+		"body": "lambda ${1:x}: ${2:x + 1}",
+		"description": "Inline anonymous lambda function."
+	},
+	"comprehension(list)  snippet.iWonder": {
+		"prefix": "list-comprehension",
+		"body": "[${1:i + 1} for ${2:i} in ${3:range(0, ${4:10})}]",
+		"description": "Create a list using comprehension."
+	},
+	"comprehension(dict)  snippet.iWonder": {
+		"prefix": "dict-comprehension",
+		"body": "{${1:k}:${2:v} for ${1:k}, ${2:v} in ${4:${3:dict()}.items()}}",
+		"description": "Create a dictionary using comprehension."
+	},
+	"type(basic)  snippet.iWonder": {
+		"prefix": "type",
+		"body": "type(${1:None})$999",
+		"description": "Standard type statement."
+	},
+	"len(basic)  snippet.iWonder": {
+		"prefix": "len",
+		"body": "len(${1:[]})$999",
+		"description": "Standard len statement."
+	},
+	"id(basic)  snippet.iWonder": {
+		"prefix": "id",
+		"body": "id(${1:None})$999",
+		"description": "Standard id statement."
+	},
+	"print(basic)  snippet.iWonder": {
+		"prefix": "print",
+		"body": "print(${1:None})\n$999",
+		"description": "Standard print statement."
+	},
+	"print(type debug)  snippet.iWonder": {
+		"prefix": "print-with-type",
+		"body": "print(${1:None}, type(${1:None}))\n$999",
+		"description": "Print value and its type."
+	},
+	"print(info debug)  snippet.iWonder": {
+		"prefix": "print-with-type-len-id",
+		"body": "print(${1:None}, type(${1:None}), len(${1:[]}), id(${1:None}))\n$999",
+		"description": "Print value and its type."
+	},
 
+		"print(br debug)  snippet.iWonder": {
+		"prefix": "print-break-line",
+		"body": "print(\"\\033[96m========== break-line ==========\\033[0m\")\n$999",
+		"description": "Print value and its type."
+	},
+
+	"f-string(debug)  snippet.iWonder": {
+		"prefix": "f-string",
+		"body": "f\"{${1:None}=}\"$999",
+		"description": "Self-documenting f-string (var=value)."
+	},
+	"log(info)  snippet.iWonder": {
+		"prefix": "log-info",
+		"body": "logging.info(f\"${1:info}\")\n$999",
+		"description": "Log an info message."
+	},
+	"log(debug)  snippet.iWonder": {
+		"prefix": "log-debug",
+		"body": "logging.debug(f\"${1:debug}\")\n$999",
+		"description": "Log a debug message."
+	},
+	"log(warning)  snippet.iWonder": {
+		"prefix": "log-warn",
+		"body": "logging.warn(f\"${1:warn}\")\n$999",
+		"description": "Log a warning message."
+	},
+	"log(error)  snippet.iWonder": {
+		"prefix": "log-error",
+		"body": "logging.error(f\"${1:error}\")\n$999",
+		"description": "Log an error message."
+	},
+	"docstring(google style)  snippet.iWonder": {
+		"prefix": "doc",
+		"body": "\"\"\"\nSummary:\n    ${1:document}\n\nArgs:\n    ${2:arg}\t:\t${3:type}\t:\t${4:description}\n\nReturns:\n    ${5:value}\t:\t${6:type}\t:\t${7:description}\n\nRaises:\n    ${8:Exception}\t:\t${9:description}\n\"\"\"\n\n$999",
+		"description": "Generate a structured function docstring."
+	},
+	"variable(assign)  snippet.iWonder": {
+		"prefix": "var",
+		"body": "${1:arg} = ${2:None}\n$0",
+		"description": "Basic variable assignment."
+	},
+	"list(sort in-place)  snippet.iWonder": {
+		"prefix": "sort-list",
+		"body": "${1:[]}.sort(key=lambda x: ${2:int(x)}${3:, reverse=True})\n$0",
+		"description": "Sort a list in-place using a key."
+	},
+	"list(sorted new)  snippet.iWonder": {
+		"prefix": "sorted-list",
+		"body": "${1:_l} = sorted(${2:[]}, key=lambda x: ${3:int(x)}${4:, reverse=True})\n$0",
+		"description": "Return a new sorted list."
+	},
+	"function(async)  snippet.iWonder": {
+		"prefix": "def-async",
+		"body": "async def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an asynchronous coroutine."
+	},
+	"function(async alias)  snippet.iWonder": {
+		"prefix": "func-async",
+		"body": "async def ${1:func}(${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an asynchronous coroutine."
+	},
+	"function(method async)  snippet.iWonder": {
+		"prefix": "def-self-async",
+		"body": "async def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an asynchronous instance method."
+	},
+	"function(method async alias)  snippet.iWonder": {
+		"prefix": "func-self-async",
+		"body": "async def ${1:func}(self, ${2:arg}):\n    ${999:...}\n\n",
+		"description": "Define an asynchronous instance method."
+	},
+	"variable(int)  snippet.iWonder": {
+		"prefix": "var-hint-int",
+		"body": "${1:num}: int = ${2:0}\n$999",
+		"description": "Variable with integer type hint."
+	},
+	"variable(string)  snippet.iWonder": {
+		"prefix": "var-hint-str",
+		"body": "${1:s}: str = \"${2:}\"\n$999",
+		"description": "Variable with string type hint."
+	},
+	"variable(list)  snippet.iWonder": {
+		"prefix": "var-hint-list",
+		"body": "${1:_l}: list[${2:None}] = [${3:}]\n$999",
+		"description": "Variable with list type hint."
+	},
+	"variable(tuple)  snippet.iWonder": {
+		"prefix": "var-hint-tuple",
+		"body": "${1:_t}: tuple[${2:None}] = (${3:None},)\n$999",
+		"description": "Variable with tuple type hint."
+	},
+	"variable(dict)  snippet.iWonder": {
+		"prefix": "var-hint-dict",
+		"body": "${1:_d}: dict[${2:str}, ${3:str}] = ${4:{}}\n$999",
+		"description": "Variable with dictionary type hint."
+	},
+	"variable(float)  snippet.iWonder": {
+		"prefix": "var-hint-float",
+		"body": "${1:_f}: float = ${2:0.00}\n$999",
+		"description": "Variable with float type hint."
+	},
+	"function(hint)  snippet.iWonder": {
+		"prefix": "def-hint",
+		"body": "def ${1:func}(${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
+		"description": "Function definition with type annotations."
+	},
+	"function(hint alias)  snippet.iWonder": {
+		"prefix": "func-hint",
+		"body": "def ${1:func}(${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
+		"description": "Function definition with type annotations."
+	},
+	"function(method hint)  snippet.iWonder": {
+		"prefix": "def-self-hint",
+		"body": "def ${1:func}(self, ${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
+		"description": "Method definition with type annotations."
+	},
+	"function(method hint alias)  snippet.iWonder": {
+		"prefix": "func-self-hint",
+		"body": "def ${1:func}(self, ${2:arg}: ${3:None}) -> ${4:None}:\n    ${999:...}\n\n",
+		"description": "Method definition with type annotations."
+	}
+}
